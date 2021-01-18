@@ -4,9 +4,8 @@ All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the scri
 
 If you get this error:
 
-`
-yad: cannot create shared memory for key 12345: File exists
-`
+`yad: cannot create shared memory for key 12345: File exists`
+
 Run this:
 
 `ipcrm -M 12345`
