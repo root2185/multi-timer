@@ -7,8 +7,7 @@ If you get this error:
 `
 yad: cannot create shared memory for key 12345: File exists
 `
-
-run this:
+Run this:
 
 `ipcrm -M 12345`
 
@@ -43,7 +42,7 @@ After changing the Index and Maximum save the multi-timer file. If you have alre
 
 `rm ~/.multi-timer`
 
-# In this repo there is also a launcher, an icon and an alarm.
+In this repo there are also a launcher, an icon and an alarm.
 You can specify the paths in the launcher and with alacarte (tested on gnome) you can add it to the applications menu.
 
 If you copy the script to /usr/bin you can also launch it from the cli using:
