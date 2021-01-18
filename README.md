@@ -3,11 +3,15 @@ This is an application to set multiple timers sequentially.
 All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the script is taken from here https://askubuntu.com/questions/1039357/a-timer-to-set-up-different-alarms-simultaneosly.
 
 If you get this error:
+
 `
 yad: cannot create shared memory for key 12345: File exists
 `
+
 run this:
+
 `ipcrm -M 12345`
+
 When it is open if you launch it again this may happen. You can also lose the settings.
 
 Settings are saved in your home with in the .multi-timer file. (You can make a copy).
@@ -39,7 +43,7 @@ After changing the Index and Maximum save the multi-timer file. If you have alre
 
 `rm ~/.multi-timer`
 
-In this repo there is also a launcher, an icon and an alarm.
+# In this repo there is also a launcher, an icon and an alarm.
 You can specify the paths in the launcher and with alacarte (tested on gnome) you can add it to the applications menu.
 
 If you copy the script to /usr/bin you can also launch it from the cli using:
