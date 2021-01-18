@@ -1,9 +1,11 @@
-This is a timer to set multiple alarms sequentially.
+This is an application to set multiple timers sequentially.
 
 All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the script is taken from here https://askubuntu.com/questions/1039357/a-timer-to-set-up-different-alarms-simultaneosly.
 
 If you get this error:
+`
 yad: cannot create shared memory for key 12345: File exists
+`
 run this:
 `ipcrm -M 12345`
 When it is open if you launch it again this may happen. You can also lose the settings.
