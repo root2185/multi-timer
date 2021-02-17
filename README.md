@@ -18,7 +18,7 @@ When it is open if you launch it again this may happen. You can also lose the se
 
 Settings are saved in your home with in the .multi-timer file. (You can make a copy).
 
-The yad package is required, this install it on debian:
+The yad package is required, this install it on Debian:
 
 `apt install yad`
 
