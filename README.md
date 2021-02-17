@@ -1,7 +1,11 @@
-This is an application to set multiple timers sequentially.
-It is tested on Debian 9, 10, Ubuntu 14.04, 16.04 and 18.04. It also works in Windows 10 with Ubuntu 16.04 Desktop installed.04 and 18.04. It also works in Windows 10 with Ubuntu 16.04 Desktop installed.
-All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the script is taken from here https://askubuntu.com/questions/1039357/a-timer-to-set-up-different-alarms-simultaneosly.
+This is an application to set multiple timers sequentially. 
+
+It is tested on Debian 9, 10, Ubuntu 14.04, 16.04, 18.04, Windows 10 with Ubuntu 16.04 Desktop installed.<br>
+Probably works on the others GNU/Linux ditros too.
+
+All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the script is taken from here https://askubuntu.com/questions/1039357/a-timer-to-set-up-different-alarms-simultaneosly.<br>
 This is an older version that I find better.
+
 If you get this error:
 
 `yad: cannot create shared memory for key 12345: File exists`
