@@ -55,3 +55,5 @@ If you copy the script to /usr/bin you can also launch it from the cli using:
 Works for all the users.
 
 Always launch the same file if you copy it somewhere else.
+
+Icon credit: https://icon-library.com/icon/timer-icon-24.html.
