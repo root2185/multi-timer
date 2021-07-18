@@ -1,11 +1,11 @@
 #!/bin/bash
 
+# All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix
 # If you get this error: "yad: cannot create shared memory for key 12345: File exists",
 # run this: "ipcrm -M 12345". (To remove shared memory segment by key).
 # When it is open if you launch it again this may happen. You can also lose the settings.
 
 # Settings are saved in your home with in the .multi-timer file.
-
 # The yad package is required.
 
 # NOTE: Following conventions are used:
