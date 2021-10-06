@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Terminal=false
-Exec=/path/multi-timer/./multi-timer
+Exec=/path/multi-timer/multi-timer
 Name=Multi-timer
-Comment=A timer to set up different alarms consequentially. 
+Comment=A timer to set up different alarms sequentially. 
 Icon=/path/multi-timer/icon.png
