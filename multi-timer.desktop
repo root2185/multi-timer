@@ -4,4 +4,4 @@ Terminal=false
 Exec=/path/multi-timer/multi-timer
 Name=Multi-timer
 Comment=A timer to set up different alarms sequentially. 
-Icon=/path/multi-timer/icon.png
+Icon=/path/multi-timer/multi-timer.png
