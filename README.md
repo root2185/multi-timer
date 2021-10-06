@@ -12,6 +12,7 @@ The yad and libnotify-bin package are required, this install them on Debian:
 `apt install yad libnotify-bin`
 
 This package doesn't work on gnome wayland, because of yad.
+The alarms won't sound if you aren't running pulseaudio or pipewire as replacement.
 
 You may need to set the number of timers:
 At line number 140, 141 and 142 you will see this:
