@@ -8,7 +8,7 @@ This is an older version that I find better.
 
 Settings are saved in your home with in the .multi-timer file. (You can make a copy).
 
-The yad and libnotify-bin package are required, this install it on Debian:
+The yad and libnotify-bin package are required, this install them on Debian:
 
 `apt install yad libnotify-bin`
 
