@@ -4,7 +4,6 @@ It is tested on Debian 9, 10, 11, Ubuntu 14.04, 16.04, 18.04, Windows 10 with Ub
 Probably works on the others GNU/Linux ditros too.
 
 All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the script is taken from here https://askubuntu.com/questions/1039357/a-timer-to-set-up-different-alarms-simultaneosly.<br>
-This is an older version that I find better.
 
 Settings are saved in your home with in the .multi-timer file. (You can make a copy).
 
