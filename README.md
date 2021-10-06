@@ -1,28 +1,18 @@
 This is an application to set multiple timers sequentially. 
 
-It is tested on Debian 9, 10, Ubuntu 14.04, 16.04, 18.04, Windows 10 with Ubuntu 16.04 Desktop installed.<br>
+It is tested on Debian 9, 10, 11, Ubuntu 14.04, 16.04, 18.04, Windows 10 with Ubuntu 16.04 Desktop installed.<br>
 Probably works on the others GNU/Linux ditros too.
 
 All credits are to https://askubuntu.com/users/307523/wineunuuchs2unix, the script is taken from here https://askubuntu.com/questions/1039357/a-timer-to-set-up-different-alarms-simultaneosly.<br>
 This is an older version that I find better.
 
-If you get this error:
-
-`yad: cannot create shared memory for key 12345: File exists`
-
-Run this:
-
-`ipcrm -M 12345`
-
-When it is open if you launch it again this may happen. You can also lose the settings.
-
 Settings are saved in your home with in the .multi-timer file. (You can make a copy).
 
-The yad package is required, this install it on Debian:
+The yad and libnotify-bin package are required, this install it on Debian:
 
-`apt install yad`
+`apt install yad libnotify-bin`
 
-That package doesn' t work wayland.
+That package doesn't work on gnome wayland.
 
 You may need to set the number of timers:
 At line number 75, 76 and 77 you will see this:
@@ -53,7 +43,5 @@ If you copy the script to /usr/bin you can also launch it from the cli using:
 `multi-timer`
 
 Works for all the users.
-
-Always launch the same file if you copy it somewhere else.
 
 Icon credit: https://icon-library.com/icon/timer-icon-24.html.
