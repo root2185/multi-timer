@@ -15,7 +15,7 @@ The yad and libnotify-bin package are required, this install them on Debian:
 That package doesn't work on gnome wayland.
 
 You may need to set the number of timers:
-At line number 75, 76 and 77 you will see this:
+At line number 140, 141 and 142 you will see this:
 ```
 # No. of timers default is 17 for 768 line screen and TMR_DURATION_NDX is 30
 TMR_DURATION_NDX=30 # Set to 28 for 800x600 screen, 32 for 1920x1080 screen
