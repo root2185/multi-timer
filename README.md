@@ -12,7 +12,11 @@ The yad and libnotify-bin package are required, this install them on Debian:
 `apt install yad libnotify-bin`
 
 This package doesn't work on gnome wayland, because of yad.<br>
-The alarms won't sound if you aren't running pulseaudio or pipewire as replacement.
+
+The default sound is alarm.wav, by default the script looks in /usr/share/sounds/multi-timer.
+By default pulseaudio is used to play it. 
+If you don't have it change at line 361 "paplay" to "aplay" to use only alsa. It supports only WAV files.
+Another option is "mpv", it supports a lot of formats.
 
 You may need to set the number of timers:
 At line number 140, 141 and 142 you will see this:
@@ -43,3 +47,13 @@ If you copy the script to /usr/bin you can also launch it from the cli using:
 `multi-timer`
 
 Works for all the users.
+
+Copying the files:
+```
+cp multi-timer /usr/bin/
+cp multi-timer.svg /usr/share/icons/hicolor/scalable/apps/
+cp README.md /usr/share/doc/multi-timer/
+cp multi-timer.desktop /usr/share/applications/
+cp alarm.wav /usr/share/sounds/multi-timer/
+cp multi-timer.1 /usr/share/man/man1/
+```
