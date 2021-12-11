@@ -1,0 +1,85 @@
+Multi-timer
+---------------------------
+
+## Features
+
+- Retains configuration between uses, saving it in ~/.multi-timer
+- Up to 19 timers run sequentially in a set.
+- Progress bar for each timer.
+- Set of timers can be run multiple times.
+- Progress bar for set.
+- Progress bar for all sets.
+- Optional prompt to start each timer and/or set.
+- Optional pop-up message when each timer and/or set ends.
+- Optional alarm when each timer and/or set ends.
+- Optional lock screen when each timer OR set OR all sets end.
+- Optional close progress bar display when all sets of timers end.
+
+## Notebook Configuration Tab
+
+yad (Yet Another Dialog) has a feature that allows multi-timer fields to be divided between two separate panels accessed within one window via notebook tabs.
+
+The Configuration Tab lets you:
+
+- define time units in Seconds/Minutes
+- define how many times to run set of timers.
+- link to sound file used for timer alarms
+- option to lock screen at end of each timer, set, or all sets
+- additional options as illustrated below
+
+## Notebook Timers Tab
+
+The Timers Tab allows you to:
+
+- Define alias for each timer rather than Timer 1, Timer 2, etc.
+- Set the number of seconds or minutes each timer runs.
+
+## Progress Bar Display
+
+As multi-timer counts down progress bars are used for:
+
+- each active timer (zero duration timers are not shown)
+- each set (if two or more active timers in set)
+- all sets (if two or more sets run)
+
+## Changing number of Timers
+
+If you want to change the number of timers (default 10) you should think about doing it only for your user, if there are other users with saved configs and other resolutions.
+If you change it the timers duration (and eventually also the name) in the config (~/.multi-timer) will be ruined. Other settings will be fine.
+If the monitor has a big resolution a good idea could be to add some timers immediately.
+
+To change the number of timers locally copy and paste the script from /usr/bin to ~/bin/:
+ 
+ cp /usr/bin/multi-timer ~/bin/ 
+
+In the script at line number 140, 141 and 142 you will see this:
+
+    # No. of timers default is 17 for 768 line screen and TMR_DURATION_NDX is 30
+    TMR_DURATION_NDX=30 # Set to 28 for 800x600 screen, 32 for 1920x1080 screen
+    MAX_TIMERS=17       # Set to 15 for 800x600 screen, 19 for 1920x1080 screen
+
+Although 19 timers are supported, they might only fit on a 1920x1080 screen. About 17 will fit on the average 1024x768 screen. If you have Super VGA with 800x600 resolution you might only get 13 to 15 timers.
+
+You must change the values these lines at the same time:
+
+    Bash field name    ----------- Values to assign ---------
+    TMR_DURATION_NDX   23  24  25  26  27  28  29  30  31  32
+    MAX_TIMERS         10  11  12  13  14  15  16  17  18  19
+
+eg If you want a maximum of 12 timers, set `TMR_DURATION_NDX=25` and `MAX_TIMERS=12`.
+
+## Requirements for multi-timer
+
+Multi-timer requires the following packages to be installed:
+
+    sudo apt install yad
+    sudo apt install libnotify-bin
+
+yad is required for the windows and libnotify-bin is required for optional pop up message when a timer ends.
+
+## Alarm Sound
+
+The default sound is alarm.wav located in /usr/share/sounds/multi-timer.
+By default pulseaudio is used to play it. 
+If you don't have it change at line 361 "paplay" to "aplay" to use only alsa. It supports only WAV files.
+Another option is "mpv", it supports a lot of formats.

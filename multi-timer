@@ -5,7 +5,7 @@
 #       https://askubuntu.com/questions/1039357
 #       /a-timer-to-set-up-different-alarms-simultaneosly
 
-# DATE: May 31, 2018. Modified Sept 13, 2021.
+# DATE: May 31, 2018. Modified May 10, 2020.
 
 # UPDT: 2018-06-07 Add new index for check box: "automatically close
 #           progress bar display when all Sets finish". Remove '~/.multi-timer'
@@ -47,8 +47,6 @@
 
 #       2021-09-07 Change KEY="12345" to random number. Allows restarting.
 
-#       2021-09-13 Use /run/user/$UID for multi-user systems.
-
 # NOTE: Following conventions are used:
 #           Functions must be defined above point where they are called.
 #           Yad style TRUE/FALSE instead of Bash true/false convention.
@@ -75,7 +73,7 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     TitlePrefix="Windows 10"
 else
     fWindows10=FALSE
-    DefaultSound="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+    DefaultSound="/usr/share/sounds/multi-timer/alarm"
     TitlePrefix="Linux"
 fi
 
@@ -108,7 +106,7 @@ res1=$(mktemp --tmpdir=/run/user/$UID iface1.XXXXXXXX) # Notebook Configuraion
 res2=$(mktemp --tmpdir=/run/user/$UID iface2.XXXXXXXX) # Notebook Timers
 
 # Suppress Transient parent error spam
-exec 2> >(grep -v 'GtkDialog mapped without a transient parent' >&2)
+#exec 2> >(grep -v 'GtkDialog mapped without a transient parent' >&2)
 
 Cleanup () {
     rm -f "$res1" "$res2"               # Remove temporary files
@@ -228,7 +226,7 @@ GetParameters () {
     # run main dialog
     #  --image=gnome-calculator
     if yad --notebook --key=$KEY --tab="Configuration" --tab="Timers" \
-        --image=/usr/share/icons/gnome/48x48/status/appointment-soon.png \
+        --image=/usr/share/icons/hicolor/scalable/apps/multi-timer.svg  \
         --title="$TitlePrefix multi-timer setup" --auto-close \
         --width=400 --image-on-top --text="Multiple Timer settings" \
         "$GEOMETRY"
@@ -340,7 +338,7 @@ PromptToStart () {
     yad --title "mutli-timer notification" "$GEOMETRY" --on-top \
         --fontname="Serif bold italic 28" \
         --text "Ready to start $1" \
-        --image=/usr/share/icons/gnome/48x48/status/appointment-soon.png \
+        --image=/usr/share/icons/hicolor/scalable/apps/multi-timer.svg  \
         --borders=20 --button=gtk-execute:0
 
     # Eliminates time waiting for user input
@@ -357,7 +355,7 @@ EndMessageAndAlarm () {
             powershell.exe -c "(New-Object Media.SoundPlayer $sSoundFilename).PlaySync();"
         elif [[ ! -f "$sSoundFilename" ]]; then
             notify-send --urgency=critical "multi-timer" \
-            --icon=/usr/share/icons/gnome/48x48/status/appointment-soon.png \
+            --icon=/usr/share/icons/hicolor/scalable/apps/multi-timer.svg  \
             "Sound file not found: $sSoundFilename"
         else
             paplay "$sSoundFilename" ;
@@ -367,7 +365,7 @@ EndMessageAndAlarm () {
     # Bubble message when timer ends
     if [[ "$1" == TRUE ]]; then
         notify-send --urgency=critical "multi-timer" \
-            --icon=/usr/share/icons/gnome/48x48/status/appointment-soon.png \
+            --icon=/usr/share/icons/hicolor/scalable/apps/multi-timer.svg  \
             "$3 has ended."
         # Something bold to test. Set $3 has ended. into $phrase
         # /usr/bin/notify-send  --urgency=critical --icon=clock -t 4000 \
@@ -460,7 +458,8 @@ SetupYadProgressBars () {
     aYadProgressBars+=("--title=multi-timer progress")
     [[ $fCloseProgramAtEnd == TRUE ]] && aYadProgressBars+=("--auto-close")
     aYadProgressBars+=("--watch-bar$iProgressBarCount")
-
+    aYadProgressBars+=("--kill-parent")
+    
     for ((i=0; i<MAX_TIMERS; i++)); do
         if [[ ${aDuration[i]} -gt 0 ]] ; then
             b1=$(( i + 1 ))

@@ -2,8 +2,8 @@
 Type=Application
 Name=Multi-timer
 Terminal=false
-Exec=/path/to/multi-timer
-Icon=/path/to/multi-timer
+Exec=multi-timer
+Icon=multi-timer
 Comment=Set up to 19 sequentially timers, with also sets (all timers).
 Categories=Utility;
 Name[en_US]=Multi-timer
