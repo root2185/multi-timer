@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Multi-timer
+Terminal=false
+Exec=multi-timer
+Icon=multi-timer
+Comment=Set of countdown timers with alarm
+Categories=Utility;
+Name[en_US]=Multi-timer

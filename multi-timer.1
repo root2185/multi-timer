@@ -1,0 +1,76 @@
+.TH MULTI-TIMER 1 "10 December 2021"
+.SH NAME
+\fBmulti-timer\fP \- Set of countdown timers with alarm
+
+.SH DESCRIPTION
+Set of countdown timers with alarm, up to 19 per set.
+
+Set of timers can be run multiple times,
+progress bar for set, progress bar for all sets. 
+
+Optional prompt to start each timer and/or set. 
+
+Optional notifications when each timer and/or set ends. 
+
+Optional alarm when each timer and/or set ends. 
+
+Customizable alarm file.
+
+.SH OPTIONS
+        
+.B multi-timer
+doesn't take any command line option.
+
+.SH CHANGING THE NUMBER OF TIMER
+
+If you want to change the number of timers (default 10) you should think about doing it only for your user, if there are other users with saved configs and other resolutions.
+
+If you change it the timers duration (and eventually also the name) in the config (~/.multi-timer) will be ruined. Other settings will be fine.
+
+If the monitor has a big resolution a good idea could be to add some timers immediately.
+
+To change the number of timers locally copy and paste the script from /usr/bin to ~/bin/:
+ 
+ cp /usr/bin/multi-timer ~/bin/ 
+
+In the script at line number 143, 144 and 145 you will see this:
+
+    # No. of timers default is 17 for 768 line screen and TMR_DURATION_NDX is 30
+    TMR_DURATION_NDX=23 # Set to 28 for 800x600 screen, 32 for 1920x1080 screen
+    MAX_TIMERS=10       # Set to 15 for 800x600 screen, 19 for 1920x1080 screen
+
+Although 19 timers are supported, they might only fit on a 1920x1080 screen. About 17 will fit on the average 1024x768 screen. If you have Super VGA with 800x600 resolution you might only get 13 to 15 timers.
+
+You must change the values these lines at the same time:
+
+    Bash field name    ----------- Values to assign ---------
+    TMR_DURATION_NDX   23  24  25  26  27  28  29  30  31  32
+    MAX_TIMERS         10  11  12  13  14  15  16  17  18  19
+
+eg If you want a maximum of 12 timers, set `TMR_DURATION_NDX=25` and `MAX_TIMERS=12`.
+
+.SH CHANGING THE ALARM FILE
+
+The default sound is alarm.wav located in /usr/share/sounds/multi-timer.
+By default pulseaudio is used to play it. 
+
+If you don't have it change at line 366:
+    paplay "$sSoundFilename" ;
+"paplay" to "aplay" to use only alsa. It supports only WAV files.
+
+Another option is "mpv", it supports a lot of formats.
+
+.SH "LOCK SCREEN" OPTION
+The default command is "loginctl lock-session", changed it if you want/need to use something else for locking the screen like i3lock etc.
+It is at line 399.
+
+.SH "INTERFACE TO SYSMONITOR INDICATOR" OPTION
+This function uses https://github.com/fossfreedom/indicator-sysmonitor, not packaged by Debian.
+It needs gir1.2-appindicator3-0.1 that is't on Debian since Bullseye.
+To set it see https://askubuntu.com/questions/882419/can-bash-display-in-systray-as-application-indicator/882420#882420.
+
+.SH AUTHORS
+Scorpion2185
+.TP
+pippim.com <pippim.com@gmail.com>
+
