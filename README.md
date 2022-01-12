@@ -57,3 +57,5 @@ cp multi-timer.desktop /usr/share/applications/
 cp alarm.wav /usr/share/sounds/multi-timer/
 cp multi-timer.1 /usr/share/man/man1/
 ```
+Or on Debian install the .deb:
+`dpkg -i multi-timer_0.1.1-1_all.deb`
