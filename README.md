@@ -19,7 +19,7 @@ If you don't have it change at line 361 "paplay" to "aplay" to use only alsa. It
 Another option is "mpv", it supports a lot of formats.
 
 You may need to set the number of timers:
-At line number 140, 141 and 142 you will see this:
+At line number 143, 144 and 145 you will see this:
 ```
 # No. of timers default is 17 for 768 line screen and TMR_DURATION_NDX is 30
 TMR_DURATION_NDX=30 # Set to 28 for 800x600 screen, 32 for 1920x1080 screen
