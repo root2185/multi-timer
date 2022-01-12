@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Multi-timer
-Terminal=false
-Exec=multi-timer
-Icon=multi-timer
-Comment=Set up to 19 sequentially timers, with also sets (all timers).
-Categories=Utility;
-Name[en_US]=Multi-timer
