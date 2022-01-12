@@ -1,10 +1,9 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: multi-timer
 Upstream-Contact: pippim.com <pippim.com@gmail.com>
 Source: https://pippim.github.io/2018/05/23/Set-of-countdown-timers-with-alarm.html
 
-Files: debian/README 
-       debian/multi-timer.1  
+Files: README.md 
+       multi-timer.1  
        debian/control 
 Copyright: 2021 Scorpion2185 
            2021 pippim.com
@@ -33,8 +32,8 @@ Source: https://pippim.github.io/2018/05/23/Set-of-countdown-timers-with-alarm.h
 Copyright: 2021 pippim.com
 License: MIT 
 
-Files: debian/multi-timer.svg
-       debian/alarm.wav 
+Files: multi-timer.svg
+       alarm.wav 
 Copyright: 2021 Scorpion2185 
 License: GPL-3
 
